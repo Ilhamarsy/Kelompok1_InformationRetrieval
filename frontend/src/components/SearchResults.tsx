@@ -43,10 +43,10 @@ export default function SearchResults({ results }: SearchResultsProps) {
                                     <div className="md:hidden flex items-center justify-center w-8 h-8 rounded-lg bg-blue-50 dark:bg-blue-900/20 mr-2">
                                         <FileText className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                                     </div>
-                                    <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800">
+                                    {/* <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400 border border-green-200 dark:border-green-800">
                                         Match Score: {(result.score * 100).toFixed(1)}%
-                                    </span>
-                                    <span className="text-xs text-gray-400 font-mono truncate max-w-[200px]" title={result.filename}>
+                                    </span> */}
+                                    <span className="text-xs text-gray-400 font-mono truncate" title={result.filename}>
                                         {result.filename}
                                     </span>
                                 </div>

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Search, Sparkles, Command } from 'lucide-react';
+import { Search, Sparkles, Command, FileSearch } from 'lucide-react';
 import { search, SearchResponse } from '@/lib/api';
 import SearchResults from '@/components/SearchResults';
 import { cn } from '@/lib/utils';
@@ -49,16 +49,6 @@ export default function Home() {
 
             <div className="relative z-10 flex flex-col items-center min-h-screen">
 
-                {/* Navigation / Brand (Top Left) */}
-                {!hasSearched && (
-                    <div className="absolute top-8 left-8 flex items-center gap-2 text-gray-900 dark:text-white font-semibold tracking-tight">
-                        <div className="w-8 h-8 bg-black dark:bg-white rounded-lg flex items-center justify-center text-white dark:text-black">
-                            <Command className="w-5 h-5" />
-                        </div>
-                        ThesisNexus
-                    </div>
-                )}
-
                 {/* Hero Section */}
                 <motion.div
                     layout
@@ -68,18 +58,6 @@ export default function Home() {
                     )}
                 >
                     <motion.div layout className="text-center mb-8">
-                        {!hasSearched && (
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                className="flex items-center justify-center gap-2 mb-6"
-                            >
-                                <span className="px-3 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-medium border border-blue-200 dark:border-blue-800">
-                                    New v2.0 Search Engine
-                                </span>
-                            </motion.div>
-                        )}
-
                         <motion.h1
                             layout
                             className={cn(
@@ -91,8 +69,9 @@ export default function Home() {
                                 "Search Results"
                             ) : (
                                 <>
-                                    Unlock <span className="text-gradient">Knowledge</span> <br />
-                                    Discover Theses.
+                                    <span className="text-gradient">Search Engine</span>
+                                    <br />
+                                    Information Retrieval
                                 </>
                             )}
                         </motion.h1>
@@ -104,7 +83,7 @@ export default function Home() {
                                 transition={{ delay: 0.2 }}
                                 className="text-lg text-gray-500 dark:text-gray-400 max-w-lg mx-auto"
                             >
-                                Fast, intelligent retrieval for academic resources with hybrid search technology.
+                                Kelompok 1
                             </motion.p>
                         )}
                     </motion.div>
@@ -124,7 +103,7 @@ export default function Home() {
                                 value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                                 placeholder="Find document titles, topics, or abstract keywords..."
-                                className="w-full pl-14 pr-6 py-5 bg-white dark:bg-white/10 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl hover:shadow-2xl focus:shadow-2xl focus:border-blue-500/50 outline-none transition-all duration-300 text-lg placeholder:text-gray-400 dark:text-white"
+                                className="w-full pl-14 pr-16 py-5 bg-white dark:bg-white/10 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl hover:shadow-2xl focus:shadow-2xl focus:border-blue-500/50 outline-none transition-all duration-300 text-lg placeholder:text-gray-400 dark:text-white"
                             />
                             <button
                                 type="submit"
@@ -134,7 +113,7 @@ export default function Home() {
                                 {loading ? (
                                     <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin" />
                                 ) : (
-                                    <Sparkles className="w-5 h-5" />
+                                    <FileSearch className="w-5 h-5" />
                                 )}
                             </button>
                         </form>
